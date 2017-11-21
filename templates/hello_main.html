@@ -1,0 +1,55 @@
+{% from "hello_macros.html" import nav_link with context %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flask Hello World</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div#main {
+                max-width: 500px;
+                padding: 20px;
+            }
+
+            nav .title {
+                font-weight: bold;
+            }
+
+            a.active {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul class="nav navbar-nav">
+            <span class="title">Hello World!</span>
+                {{ nav_link('say_hi', 'Say Hi!') }}
+                {{ nav_link('hi_person', 'Bot Greatings!') }}
+                {{ nav_link('hello_person', 'Your Images') }}
+                {{ nav_link('hello_jedi', 'Your Jedi') }}
+            </ul>
+        </nav>
+        <div id="main">
+            <h2>This is part of the hello base template</h2>
+            <br>
+            {% if nav_link('say_hi') == active %}
+                {% block say_hi %}{% endblock %}
+            {% elif nav_link('hi_person') == active %}
+                {% block hi_person %}{% endblock %}
+            {% elif nav_link('hello_person') == active %}
+                {% block hello_person %}{% endblock %}
+            {% elif nav_link('hello_jedi') == active %}
+                {% block hello_jedi %}{% endblock %}
+            {% endif %}
+            <br>
+            <h2>This is part of my base template</h2>
+        </div>
+        <footer>
+            {% block footer %}
+                Watch! This part of the footer is coming from the base template...
+                <br>
+                <br>
+            {% endblock %}
+        </footer>
+    </body>
+</html>
