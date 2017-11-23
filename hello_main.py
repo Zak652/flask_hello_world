@@ -9,24 +9,24 @@ def say_hi():
     return render_template("hello_world.html", 
                             hello_world = "Hello World!")
 
-@app.route("/<first>")
-def hi_person(first):
-	return render_template("hello_world.html", 
-                            hello = "Hello", 
+@app.route("/hi/<first>")
+def hi_person(first, *args, **kwargs):
+    return render_template("hi_person.html", 
+                            hello = "Hi", 
                             first = "{}".format(first.title()))
 
-@app.route("/<first>")
-def hello_person(first):
-    return render_template("hello_world.html", 
+@app.route("/hello/<first>")
+def hello_person(first, *args, **kwargs):
+    return render_template("hello_person.html", 
                             hello = "Hello", 
                             first = "{}".format(first.title()), 
                             picture = "Here's a picture of a kitten. Awww...")
 
-@app.route("/<first>/<last>")
-def hello_jedi(first, last):
-    return render_template("hello_world.html", 
+@app.route("/jedi/<first>/<last>")
+def hello_jedi(first, last, *args, **kwargs):
+    return render_template("hello_jedi.html", 
                             hello = "Hello", 
-                            first = "{}".format(first[1:]), 
+                            first = "{}".format(first[1:]),
                             last = "{}".format(last[0:3]))
 
 if __name__ == "__main__":

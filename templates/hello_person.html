@@ -1,0 +1,8 @@
+{% extends "hello_main.html" %}
+
+
+{% block hello_person %}
+    <h3>This is from the hello_person block</h3>
+    <p>Personalised with an image touch!: {{hello ~ " " ~ first ~ " " ~ picture}}</p>
+    <img src="http://placekitten.com/g/200/300">
+{% endblock %}

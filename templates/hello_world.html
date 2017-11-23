@@ -4,24 +4,3 @@
     <h3>This is from the say_hi block</h3>
     <p>Greetings to the world!: {{hello_world}}</p>
 {% endblock %}
-
-{% block hi_person %}
-    <h3>This is from the hi_person block</h3>
-    <p>Personalised greetings!: {{hello ~ " " ~ first ~ "!"}}</p>
-{% endblock %}
-
-{% block hello_person %}
-    <h3>This is from the hello_person block</h3>
-    <p>Personalised with an image touch!: {{hello ~ " " ~ first ~ picture}}</p>
-    <img src="http://placekitten.com/g/200/300">
-{% endblock %}
-
-{% block hello_jedi %}
-    <h3>This is from the hello_jedi block</h3>
-    <p>Jedi greetings!: {{hello ~ " " ~ last ~ first ~ "!"}} </p>
-{% endblock %}
-
-{% block footer %}
-{{super()}}
-...and this addition to the footer is coming from the child template.
-{% endblock %}

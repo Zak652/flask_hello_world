@@ -1,0 +1,7 @@
+{% extends 'hello_main.html' %}
+
+
+{% block hello_jedi %}
+    <h3>This is from the hello_jedi block</h3>
+    <p>Jedi greetings!: {{hello ~ " " ~ last ~ first ~ "!"}} </p>
+{% endblock %}
